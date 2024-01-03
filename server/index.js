@@ -3,13 +3,15 @@ const { TodoSchema } = require("./data_schema/index");
 const express = require("express");
 const cors = require("cors");
 
+require("dotenv").config({path: "./vars/.env"});
+
 const app = express();
 const PORT = process.env.PORT;
 
 app.use(express.json());
 app.use(
     cors({
-        origin: "http://localhost:5173",
+        origin: process.env.react_connection_str,
     })
 );
 
